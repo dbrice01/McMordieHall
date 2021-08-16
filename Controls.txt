@@ -1,0 +1,11 @@
+Controls:
+
+To move around:
+-Use mouse for looking, WASD for movement
+
+There are three Modes: Viewer (moving around scene), Boombox (moving boombox), and Scale (Scaling chamber). Mode can be toggled by pressing M key.
+
+The axis used for movement/scaling in Boombox and Scale modes can be toggled between X,Y and Z by pressing the X key.
+The W and S keys are used to scale/move up and down on an axis. 
+
+     
