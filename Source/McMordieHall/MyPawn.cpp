@@ -27,6 +27,7 @@ void AMyPawn::Tick(float DeltaTime)
 	FQuat QuatRotation;
 	FVector NewLocation;
 	FVector CurrentScale;
+
 	switch (Mode)
 	{
 	case 0: //Viewer mode
@@ -39,6 +40,11 @@ void AMyPawn::Tick(float DeltaTime)
 		AddActorLocalRotation(QuatRotation, false, 0, ETeleportType::None);
 		break;
 	case 1: //Scale mode
+		if (Chamber == nullptr)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("No Chamber selected in BP Pawn"));
+			break;
+		}
 		CurrentScale = Chamber->GetActorScale3D();
 		switch (Axis)
 		{
@@ -56,8 +62,14 @@ void AMyPawn::Tick(float DeltaTime)
 		}
 		break;
 	case 2: //Boombox mode
+		if (Boombox == nullptr)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("No Boombox selected in BP Pawn"));
+			break;
+		}
 		switch (Axis)
 		{
+			
 		case 0:
 			Boombox->SetActorLocation(Boombox->GetActorLocation() + FVector(MovementDirection.X * BoomboxSpeed, 0, 0));
 			break;
